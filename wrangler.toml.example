@@ -1,0 +1,50 @@
+# wrangler.toml — copy this file to `wrangler.toml` and fill in your values.
+#
+# This is a Cloudflare Pages project (NOT a Worker). The `name` field maps
+# to your Pages project name. Run `wrangler pages project create <name>`
+# before your first deploy.
+
+name = "your-google-mcp"
+compatibility_date = "2026-04-24"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./public"
+
+# KV namespace for storing OAuth codes/tokens + Google access-token cache.
+# Create one with:  wrangler kv namespace create "TOKENS"
+# Paste the returned id below.
+[[kv_namespaces]]
+binding = "TOKENS"
+id = "YOUR_KV_NAMESPACE_ID_HERE"
+
+# Public, non-secret configuration. Override per-deployment as needed.
+[vars]
+# Email allowed to authorize the bridge from claude.ai. Anyone authenticating
+# from claude.ai must enter this email + the ADMIN_PASSWORD secret.
+ALLOWED_EMAIL = "you@example.com"
+
+# Public URL of your deployed bridge. Must match the Pages URL exactly.
+ISSUER = "https://your-google-mcp.pages.dev"
+
+# Branding for the login page. Customize freely.
+SITE_NAME = "Your Org"
+LOGIN_TITLE = "Google APIs MCP"
+
+# Default Google project ID (used by the SA-main path for cross-API calls).
+# Find this at: https://console.cloud.google.com/ → project selector
+GOOGLE_PROJECT_ID = "your-gcp-project-id"
+
+# Browser-style API key for keyless APIs (Maps, Places, Vision, Translate,
+# PageSpeed). Restrict it in the Cloudflare Pages dashboard or here:
+# https://console.cloud.google.com/apis/credentials
+# IMPORTANT: This IS exposed to the worker as a non-secret var. Do not
+# put a key with broader permissions than needed.
+GOOGLE_API_KEY = "AIza..."
+
+# Default Merchant Center merchant ID. Leave empty if you don't use Merchant.
+MERCHANT_ID = ""
+
+# Default GA4 property ID. Leave empty if you don't use GA4.
+GA4_PROPERTY_ID = ""
+
+# Default Search Console site URL (must end with /). Leave empty if not used.
+GSC_SITE_URL = ""

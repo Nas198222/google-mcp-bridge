@@ -1,0 +1,18 @@
+# Wrangler & Cloudflare local state
+.wrangler/
+node_modules/
+.dev.vars
+
+# Real config (the one you fill in with secrets pointers — never commit!)
+wrangler.toml
+
+# Editor / OS
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Local dev artifacts
+.env
+.env.local
+*.log
