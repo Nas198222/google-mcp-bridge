@@ -1,5 +1,7 @@
 # Google APIs MCP Bridge
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)](https://aladdin-google-mcp.pages.dev) [![Last commit](https://img.shields.io/github/last-commit/Nas198222/google-mcp-bridge)](https://github.com/Nas198222/google-mcp-bridge/commits/main)
+
 Self-hostable [Model Context Protocol](https://modelcontextprotocol.io/) server that exposes Google's APIs to **claude.ai web** (and any other MCP client that speaks OAuth 2.1 + PKCE).
 
 Runs on **Cloudflare Pages Functions**. One-file-per-concern. No build step. Deploy in ~10 minutes.
